@@ -27,7 +27,7 @@ plot(density(Y),
      xlab = "Y Value", ylab = "Density")
 
 
-model <- cmdstanr::cmdstan_model(stan_file = "/Users/todd/Code/Fun/Pearson's Uncertainty/linear_model.stan")
+model <- cmdstanr::cmdstan_model(stan_file = "/Users/todd/Code/Learning/Pearson's Uncertainty/linear_model.stan")
 
 data <- list(N = N,
              X = X,
