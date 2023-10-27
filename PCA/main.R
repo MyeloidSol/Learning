@@ -165,7 +165,6 @@ gradient_eval <- function(set_of_vecs, cur_vec, e = 1e-5) {
     return(fd)
   })
   
-  
   return(gradient)
 }
 
