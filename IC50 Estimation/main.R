@@ -8,8 +8,8 @@ Nt <- 5
 Nd <- 20
 
 # Distribution of true values generated from batch creation
-true_sig_Apar <- rlnorm(Nb, mean = log(5), sd = 0.2) # No such thing as a negative concentration
-true_sig_Bpar <- rlnorm(Nb, mean = log(1), sd = 0.2) # Constrained to be positive
+true_sig_Apar <- rlnorm(Nb, mean = log(5), sd = 0.1) # No such thing as a negative concentration
+true_sig_Bpar <- rlnorm(Nb, mean = log(1), sd = 0.1) # Constrained to be positive
 
 # Concentrations to be measured
 concs <- seq(0, 10, length = Nd)
@@ -55,3 +55,16 @@ model_data <- list(Nb = Nb,
                    potency = data)
 
 fit <- model$sample(model_data, chains = 4, parallel_chains = 4)
+
+draws <- as.data.frame(fit$draws(format = "df"))
+
+
+# Estimated IC50s
+est_IC50 <- colMeans(draws[,grepl("alphaI", colnames(draws))])
+true_IC50 <- true_sig_Apar
+
+# Compare
+print(est_IC50)
+print(true_IC50)
+
+
