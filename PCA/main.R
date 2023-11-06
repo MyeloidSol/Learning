@@ -153,6 +153,17 @@ print(plot2)
 
 
 # Gradient method ----
+
+# Add Another Variable
+V3 <- 10 + rnorm(N, V1 + V2, sd = 0.2)
+
+# Format as a matrix
+mat <- rbind(V1, V2, V3)
+
+# Distance matrix(thing we want to approximate)
+dist_mat <- dist(t(mat))
+
+
 gradient_eval <- function(set_of_vecs, cur_vec, e = 1e-5) {
   dim <- length(cur_vec)
   
@@ -168,7 +179,7 @@ gradient_eval <- function(set_of_vecs, cur_vec, e = 1e-5) {
   return(gradient)
 }
 
-cur_vec <- rnorm(2)
+cur_vec <- rnorm(3)
 cur_vec <- cur_vec / sum(cur_vec^2)^0.5
 
 for (i in 1:1e3) {
@@ -184,4 +195,6 @@ for (i in 1:1e3) {
 }
 
 grad_firstPC <- cur_vec
+
+
 
