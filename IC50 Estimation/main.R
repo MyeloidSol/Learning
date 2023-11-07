@@ -8,8 +8,8 @@ Nt <- 5
 Nd <- 20
 
 # Distribution of true values generated from batch creation
-true_sig_Apar <- rlnorm(Nb, mean = log(5), sd = 0.1) # No such thing as a negative concentration
-true_sig_Bpar <- rlnorm(Nb, mean = log(1), sd = 0.1) # Constrained to be positive
+true_sig_Apar <- rlnorm(Nb, mean = log(5), sd = 0.15) # No such thing as a negative concentration
+true_sig_Bpar <- rlnorm(Nb, mean = log(1), sd = 0.15) # Constrained to be positive
 
 # Concentrations to be measured
 concs <- seq(0, 10, length = Nd)
