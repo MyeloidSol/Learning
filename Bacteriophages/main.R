@@ -36,7 +36,7 @@ data$counts <- rbinom(nrow(data),
 # Empirical PMF
 sprintf("%.5f", (c(20^5 - nrow(data), table(data$iN)) / 20^5))
 
-# True PMF
+# True PMF(WIP)
 pmf1 <- function(x, Ncomb, Nrep) {
   ( (1 / Ncomb) * (Nrep))^x * ( (Ncomb - 1) / Ncomb )^(Nrep) / factorial(x)
 }
