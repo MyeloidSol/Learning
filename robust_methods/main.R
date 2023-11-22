@@ -10,7 +10,7 @@ data <- list(N = length(x),
              x = x)
 
 # Fit Model 1(Normal Likelihood)
-n_model <- cmdstanr::cmdstan_model("/Users/todd/Code/Fun/Robust Methods/normal_likelihood_model.stan")
+n_model <- cmdstanr::cmdstan_model("/Users/todd/Code/Fun/robust_methods/normal_likelihood_model.stan")
 
 n_fit <- n_model$sample(data = data, chains = 4, parallel_chains = 4, iter_warmup = 1e3, iter_sampling = 1e4)
 
@@ -21,7 +21,7 @@ n_sacc<- mean((n_draws$sigma - true_sd)^2)
 
 
 # Fit Model 2(T-likelihood)
-t_model <- cmdstanr::cmdstan_model("/Users/todd/Code/Fun/Robust Methods/t_likelihood_model.stan")
+t_model <- cmdstanr::cmdstan_model("/Users/todd/Code/Fun/robust_methods/t_likelihood_model.stan")
 
 t_fit <- t_model$sample(data = data, chains = 4, parallel_chains = 4, iter_warmup = 1e3, iter_sampling = 1e4)
 

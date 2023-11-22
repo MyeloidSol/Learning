@@ -15,7 +15,7 @@ data <- data.frame(time = 0:20,
 )
 
 # Fit Model ----
-model <- cmdstanr::cmdstan_model("/Users/todd/Code/Learning/Floating Disks//binomial_model.stan")
+model <- cmdstanr::cmdstan_model("/Users/todd/Code/Learning/floating_disks/binomial_model.stan")
 
 model_data <- list(Nobs = 21,
                    Nrep = 3,
@@ -65,7 +65,7 @@ ggplot(plot_data, aes(x = time, y = floatings, col = beaker)) +
 
 
 # Fit Multilevel Model ----
-ml_model <- cmdstanr::cmdstan_model("/Users/todd/Code/Learning/Floating Disks//binomial_multilevel_model.stan")
+ml_model <- cmdstanr::cmdstan_model("/Users/todd/Code/Learning/floating_disks/binomial_multilevel_model.stan")
 
 ml_fit <- ml_model$sample(data = model_data, iter_sampling = 1e3, iter_warmup = 1e3, chains = 4, parallel_chains = 4)
 ml_MAP_fit <- ml_model$optimize(model_data)$mle()

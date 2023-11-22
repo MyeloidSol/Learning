@@ -45,7 +45,7 @@ ggplot(plot_data, aes(x = Dosage, y = Potency,
 
 
 # Fit Model
-model <- cmdstan_model("/Users/todd/Code/Learning/IC50 Estimation/dose_response_model.stan")
+model <- cmdstan_model("/Users/todd/Code/Learning/IC50_estimation/dose_response_model.stan")
 
 # Format data as list for Stan
 model_data <- list(Nb = Nb,
